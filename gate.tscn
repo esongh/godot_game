@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx4wu8o3jqra4"]
+
+[ext_resource type="Script" uid="uid://lcf8j3s72b8r" path="res://Teleporter.gd" id="1_ikl61"]
+[ext_resource type="Texture2D" uid="uid://e4ypjw4e0ud6" path="res://Assets/gate.png" id="2_5lukw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oabi"]
+size = Vector2(25.5891, 95.625)
+
+[node name="Gate" type="Area2D"]
+script = ExtResource("1_ikl61")
+metadata/_custom_type_script = "uid://lcf8j3s72b8r"
+
+[node name="Gate" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5lukw")
+region_rect = Rect2(15, 0, 218, 248)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.29647, 12.1274)
+rotation = -3.14159
+scale = Vector2(1.74266, 0.750277)
+shape = SubResource("RectangleShape2D_4oabi")

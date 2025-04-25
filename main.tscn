@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgeus78s1amac"]
+
+[ext_resource type="Script" uid="uid://dyj128fekrtxx" path="res://node.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://joc44bew3htc" path="res://pause_menu.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bg0nmreq8rl8w" path="res://mu_xing.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b4au8eo4svhrl" path="res://inter_actable/bounceSpring.tscn" id="6_7mycd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(361, 20)
+
+[node name="Node" type="Node"]
+process_mode = 3
+script = ExtResource("1_0xm2m")
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource("2_h2yge")]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(490, 485)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Mu-xing" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(438, 329)
+scale = Vector2(2, 2)
+
+[node name="BounceSpring" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(599, 475)
+scale = Vector2(2, 2)
+bounce_force = Vector2(0, -600)
+
+[node name="Node2D" type="Node2D" parent="."]
