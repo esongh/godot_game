@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4l8s6nkwijsm"]
+
+[ext_resource type="PackedScene" uid="uid://joc44bew3htc" path="res://pause_menu.tscn" id="1_u0e42"]
+
+[node name="Camera2D" type="Camera2D"]
+limit_top = -500
+limit_bottom = 900
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_u0e42")]
+visible = false

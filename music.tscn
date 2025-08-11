@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dej2ubcy500ux"]
-
-[ext_resource type="AudioStream" uid="uid://uuwlvus04rgr" path="res://Music/Sketchbook 2024-12-18.ogg" id="1_3h6ak"]
-
-[node name="music" type="AudioStreamPlayer"]
-stream = ExtResource("1_3h6ak")

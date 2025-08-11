@@ -1,0 +1,232 @@
+[gd_scene load_steps=11 format=3 uid="uid://ceo76n28vij35"]
+
+[ext_resource type="Script" uid="uid://cqo0hiyr11y8y" path="res://UIScene/cut_scene_1.gd" id="1_0wbt7"]
+[ext_resource type="Texture2D" uid="uid://dkvb85b5von2c" path="res://Assets/UI/cut_bg.png" id="1_030d8"]
+[ext_resource type="Texture2D" uid="uid://bwb8ocllxj7fx" path="res://Assets/cut_scene/forst.png" id="1_iun1x"]
+[ext_resource type="Texture2D" uid="uid://crqleu4fbj8t7" path="res://Assets/cut_scene/ground.png" id="3_030d8"]
+[ext_resource type="Texture2D" uid="uid://c3ytt8qdg3tea" path="res://Assets/cut_scene/pink.png" id="4_0wbt7"]
+[ext_resource type="Texture2D" uid="uid://mppc2ytvfr4k" path="res://Assets/cut_scene/blue.png" id="5_ipdid"]
+[ext_resource type="Texture2D" uid="uid://ced0mx27dbrwb" path="res://Assets/UI/cut_fg.png" id="6_0wbt7"]
+
+[sub_resource type="Animation" id="Animation_qar83"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer2/MarginContainer/PanelContainer/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer2/MarginContainer/Control/TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer2/MarginContainer/Control/pink:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer2/MarginContainer/Control/blue:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_030d8"]
+resource_name = "movie"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer2/MarginContainer/PanelContainer/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -512), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer2/MarginContainer/Control/TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.6, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-512, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer2/MarginContainer/Control/pink:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.13333, 5.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-512, 0), Vector2(-512, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer2/MarginContainer/Control/blue:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.33333, 5.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-512, 0), Vector2(-512, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_030d8"]
+_data = {
+&"RESET": SubResource("Animation_qar83"),
+&"movie": SubResource("Animation_030d8")
+}
+
+[node name="CutScene_1" type="CanvasLayer"]
+layer = 4
+script = ExtResource("1_0wbt7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_030d8")
+}
+autoplay = "movie"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -281.0
+offset_right = 241.0
+offset_bottom = 522.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("1_030d8")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+
+[node name="PanelContainer" type="Control" parent="MarginContainer2/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/MarginContainer/PanelContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_iun1x")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="MarginContainer2/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer2/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_030d8")
+
+[node name="pink" type="TextureRect" parent="MarginContainer2/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_0wbt7")
+
+[node name="blue" type="TextureRect" parent="MarginContainer2/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ipdid")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("6_0wbt7")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7

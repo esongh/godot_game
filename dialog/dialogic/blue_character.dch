@@ -1,0 +1,29 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(0.12519, 0.323527, 0.677083, 1),
+&"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "blue_style"
+},
+&"default_portrait": "blue_portraits",
+&"description": "",
+&"display_name": "凌木",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"blue_portraits": {
+"export_overrides": {
+"image": "\"res://Assets/character/avatar_1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

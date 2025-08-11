@@ -54,9 +54,14 @@ layout_mode = 2
 layout_mode = 2
 text = "继续"
 
+[node name="Reload" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "重新加载"
+
 [node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "退出游戏"
 
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://bg0nmreq8rl8w"]
+[gd_scene load_steps=36 format=3 uid="uid://bg0nmreq8rl8w"]
 
 [ext_resource type="Script" uid="uid://be2wqwndintrn" path="res://mu_xing.gd" id="1_bkjjh"]
 [ext_resource type="Texture2D" uid="uid://cx5u5enl1ewf2" path="res://Assets/blue_slim_outlayer.png" id="2_fakcw"]
 [ext_resource type="Texture2D" uid="uid://cj7sly1jhyp6k" path="res://inter_actable/gdb-keyboard-2.png" id="3_fakcw"]
+[ext_resource type="Texture2D" uid="uid://bvjejabtg7tu8" path="res://Assets/UI/gdb-xbox-2.png" id="4_222em"]
+[ext_resource type="Script" uid="uid://cgkoh7d40auxp" path="res://inter_actable/interaction_icon.gd" id="5_wl3kj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_222em"]
 atlas = ExtResource("2_fakcw")
@@ -160,28 +162,47 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkjjh"]
-size = Vector2(10, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl3kj"]
+size = Vector2(14, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fakcw"]
+atlas = ExtResource("3_fakcw")
+region = Rect2(176, 384, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eb7lo"]
 atlas = ExtResource("3_fakcw")
-region = Rect2(96, 48, 16, 16)
+region = Rect2(176, 272, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xaf7"]
 atlas = ExtResource("3_fakcw")
-region = Rect2(96, 160, 16, 16)
+region = Rect2(176, 160, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_abhhr"]
 atlas = ExtResource("3_fakcw")
-region = Rect2(96, 272, 16, 16)
+region = Rect2(176, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3snca"]
-atlas = ExtResource("3_fakcw")
-region = Rect2(96, 384, 16, 16)
+atlas = ExtResource("4_222em")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nqlw"]
+atlas = ExtResource("4_222em")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_637s5"]
+atlas = ExtResource("4_222em")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85iiq"]
+atlas = ExtResource("4_222em")
+region = Rect2(96, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1nqlw"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fakcw")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eb7lo")
 }, {
@@ -190,39 +211,43 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_abhhr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3snca")
 }],
 "loop": true,
-"name": &"default",
+"name": &"keyboard",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3snca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nqlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_637s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85iiq")
+}],
+"loop": true,
+"name": &"xbox_controller",
 "speed": 6.0
 }]
 
 [node name="Mu-xing" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_bkjjh")
-face_direction = null
-acceleration = null
-decelration = null
-turning_acceleration = null
-jump_hang_treshold = null
-max_speed = null
-jump_cut = null
-gravity_max = null
-SPEED = null
-JUMP_VELOCITY = null
-WALL_PUSHBACK_VELOCITY = null
+JUMP_VELOCITY = -550.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_eb7lo")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.942115
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_bkjjh")
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_wl3kj")
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -233,8 +258,8 @@ wait_time = 0.08
 one_shot = true
 
 [node name="InteractionIcon" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -27)
+position = Vector2(-1, -43)
 sprite_frames = SubResource("SpriteFrames_1nqlw")
-autoplay = "default"
-frame = 3
-frame_progress = 0.228386
+animation = &"xbox_controller"
+frame_progress = 0.574419
+script = ExtResource("5_wl3kj")

@@ -1,0 +1,47 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c322nftk7dxlx"]
+
+[ext_resource type="Texture2D" uid="uid://dvevhx0xbibuu" path="res://Assets/tileset/tileset_desert.png" id="1_p6kf4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hwxxo"]
+texture = ExtResource("1_p6kf4")
+0:8/animation_columns = 1
+0:8/animation_speed = 10.0
+0:8/animation_frame_0/duration = 1.0
+0:8/animation_frame_1/duration = 1.0
+0:8/animation_frame_2/duration = 1.0
+0:8/animation_frame_3/duration = 1.0
+0:8/0 = 0
+1:8/animation_columns = 1
+1:8/animation_speed = 10.0
+1:8/animation_frame_0/duration = 1.0
+1:8/animation_frame_1/duration = 1.0
+1:8/animation_frame_2/duration = 1.0
+1:8/animation_frame_3/duration = 1.0
+1:8/0 = 0
+2:8/animation_columns = 1
+2:8/animation_speed = 10.0
+2:8/animation_frame_0/duration = 1.0
+2:8/animation_frame_1/duration = 1.0
+2:8/animation_frame_2/duration = 1.0
+2:8/animation_frame_3/duration = 1.0
+2:8/0 = 0
+3:11/0 = 0
+3:8/size_in_atlas = Vector2i(1, 2)
+3:8/animation_columns = 4
+3:8/animation_speed = 6.0
+3:8/animation_frame_0/duration = 1.0
+3:8/animation_frame_1/duration = 1.0
+3:8/animation_frame_2/duration = 1.0
+3:8/animation_frame_3/duration = 1.0
+3:8/0 = 0
+3:8/0/texture_origin = Vector2i(0, 8)
+3:10/animation_columns = 4
+3:10/animation_speed = 6.0
+3:10/animation_frame_0/duration = 1.0
+3:10/animation_frame_1/duration = 1.0
+3:10/animation_frame_2/duration = 1.0
+3:10/animation_frame_3/duration = 1.0
+3:10/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_hwxxo")

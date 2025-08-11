@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://h8uxg7qn7ab4"]
+
+[ext_resource type="Script" uid="uid://bo613lry4m78r" path="res://Core/world.gd" id="1_qqkl5"]
+[ext_resource type="PackedScene" uid="uid://bg0nmreq8rl8w" path="res://mu_xing.tscn" id="2_b5yug"]
+[ext_resource type="PackedScene" uid="uid://cjtypyhvge5m1" path="res://levels/world_level_3_0.tscn" id="2_j2nkm"]
+[ext_resource type="PackedScene" uid="uid://b3hcq7f2dubk6" path="res://levels/world_level_1_0.tscn" id="2_q6lw7"]
+[ext_resource type="PackedScene" uid="uid://c3be02a4b308i" path="res://levels/world_level_4_0.tscn" id="2_uge7c"]
+[ext_resource type="PackedScene" uid="uid://dgwtonmjredex" path="res://levels/world_level_2_0.tscn" id="3_kn5v8"]
+[ext_resource type="PackedScene" uid="uid://joc44bew3htc" path="res://pause_menu.tscn" id="4_q6lw7"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_qqkl5")
+levels = Array[PackedScene]([ExtResource("2_q6lw7"), ExtResource("3_kn5v8"), ExtResource("2_uge7c"), ExtResource("2_j2nkm")])
+
+[node name="Mu-xing" parent="." instance=ExtResource("2_b5yug")]
+z_index = 4
+scale = Vector2(2, 2)
+acceleration = 2000.0
+decelration = 2600.0
+
+[node name="Camera2D" type="Camera2D" parent="Mu-xing"]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.4
+drag_bottom_margin = 0.4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 50
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_q6lw7")]
+visible = false

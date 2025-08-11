@@ -1,0 +1,29 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(0.914063, 0.50635, 0.464172, 1),
+&"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "blue_style"
+},
+&"default_portrait": "pink_portraits",
+&"description": "",
+&"display_name": "云星",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"pink_portraits": {
+"export_overrides": {
+"image": "\"res://Assets/character/avatar_2.png\""
+},
+"mirror": true,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

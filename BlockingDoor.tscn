@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctwd1yhs11mtb"]
+
+[ext_resource type="Script" uid="uid://048vrik30d4n" path="res://inter_actable/rotate_gate.gd" id="1_nwiib"]
+[ext_resource type="Texture2D" uid="uid://b6tqrye1qsa06" path="res://Assets/gate2.png" id="2_6rlal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ktdp"]
+size = Vector2(12, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rlal"]
+size = Vector2(18, 90)
+
+[node name="BlockingDoor" type="Area2D"]
+script = ExtResource("1_nwiib")
+metadata/_custom_type_script = "uid://c0nmmbq55mvfv"
+
+[node name="Interactable_collission" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 64)
+shape = SubResource("RectangleShape2D_6ktdp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 48)
+texture = ExtResource("2_6rlal")
+region_enabled = true
+region_rect = Rect2(176, 24, 24, 97)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 16)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 35)
+shape = SubResource("RectangleShape2D_6rlal")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -72.0
+offset_top = -40.0
+offset_right = 88.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "收集所有道具以打开"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowNoteTimer" type="Timer" parent="."]
