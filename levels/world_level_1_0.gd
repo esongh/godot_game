@@ -10,16 +10,15 @@ const Balloon = preload("res://dialog/balloon.tscn")
 @export var dialogue_start : String = "start"
 var cut_scene_inst : Node
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if cut_scene_inst != null:
 		return
 	print("dialog start")
 	cut_scene_inst = memory_scene.instantiate()
 	cut_scene_inst.cut_scene_ended.connect(on_cut_scene_ended)
 	Globals.ui.add_child(cut_scene_inst)
-	# var loc_inst : Node = Balloon.instantiate()
-	#Globals.ui.add_child(loc_inst)
-	# loc_inst.start(dialogue_resource, dialogue_start)
+	Globals.player.set_physics_process(false)
 
 func on_cut_scene_ended() -> void:
-	Globals.ui.remove_child(cut_scene_inst)
+	Globals.player.set_physics_process(true)
+	cut_scene_inst.queue_free()

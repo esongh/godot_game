@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://h8uxg7qn7ab4"]
+[gd_scene load_steps=9 format=3 uid="uid://h8uxg7qn7ab4"]
 
 [ext_resource type="Script" uid="uid://bo613lry4m78r" path="res://Core/world.gd" id="1_qqkl5"]
 [ext_resource type="PackedScene" uid="uid://bg0nmreq8rl8w" path="res://mu_xing.tscn" id="2_b5yug"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://c3be02a4b308i" path="res://levels/world_level_4_0.tscn" id="2_uge7c"]
 [ext_resource type="PackedScene" uid="uid://dgwtonmjredex" path="res://levels/world_level_2_0.tscn" id="3_kn5v8"]
 [ext_resource type="PackedScene" uid="uid://joc44bew3htc" path="res://pause_menu.tscn" id="4_q6lw7"]
+[ext_resource type="PackedScene" uid="uid://dm3agnlkfo43q" path="res://levels/world_level_5_0.tscn" id="6_2qtqd"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_qqkl5")
-levels = Array[PackedScene]([ExtResource("2_q6lw7"), ExtResource("3_kn5v8"), ExtResource("2_uge7c"), ExtResource("2_j2nkm")])
+levels = Array[PackedScene]([ExtResource("2_q6lw7"), ExtResource("6_2qtqd"), ExtResource("3_kn5v8"), ExtResource("2_uge7c"), ExtResource("2_j2nkm")])
 
 [node name="Mu-xing" parent="." instance=ExtResource("2_b5yug")]
 z_index = 4

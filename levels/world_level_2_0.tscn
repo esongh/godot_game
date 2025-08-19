@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dgwtonmjredex"]
+[gd_scene load_steps=18 format=4 uid="uid://dgwtonmjredex"]
 
 [ext_resource type="PackedScene" uid="uid://c2epvx5s35kcr" path="res://Core/level_template.tscn" id="1_hevek"]
 [ext_resource type="TileSet" uid="uid://xn7n2sjwpy4" path="res://levels/level_2.tres" id="2_apaiq"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dx4wu8o3jqra4" path="res://gate.tscn" id="4_spqfh"]
 [ext_resource type="Script" uid="uid://bblj4x32yalu1" path="res://Classes/PickUpManager.gd" id="5_ws2bk"]
 [ext_resource type="PackedScene" uid="uid://ctwd1yhs11mtb" path="res://BlockingDoor.tscn" id="7_qd2q4"]
+[ext_resource type="PackedScene" uid="uid://ncbsugyncd4c" path="res://inter_actable/memory_shard.tscn" id="13_jjs3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3q8j"]
 size = Vector2(45.5, 13.5)
@@ -234,5 +235,8 @@ style = "autumn"
 
 [node name="BlockingDoor" parent="." index="6" instance=ExtResource("7_qd2q4")]
 position = Vector2(7392, 809)
+
+[node name="MemoryShard" parent="." index="7" instance=ExtResource("13_jjs3j")]
+position = Vector2(119, 527)
 
 [connection signal="all_pickups_collected" from="PickUpManager" to="BlockingDoor" method="_on_all_pickups_collected"]

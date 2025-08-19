@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=7 format=3 uid="uid://3iwmm6bd678o"]
+
+[ext_resource type="Script" uid="uid://ctv7r7jri2cqa" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_h7edv"]
+[ext_resource type="Script" uid="uid://bvs768qfmguok" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_uyndq"]
+
+[sub_resource type="GDScript" id="GDScript_h7edv"]
+script/source = "@tool
+extends DialogicLayoutBase
+
+## The default layout base scene.
+
+@export var canvas_layer: int = 1
+@export var follow_viewport: bool = false
+
+@export_subgroup(\"Global\")
+@export var global_bg_color: Color = Color(0, 0, 0, 0.9)
+@export var global_font_color: Color = Color(\"white\")
+@export_file('*.ttf', '*.tres') var global_font: String = \"\"
+@export var global_font_size: int = 18
+
+
+func _apply_export_overrides() -> void:
+	# apply layer
+	set(&'layer', canvas_layer)
+	set(&'follow_viewport_enabled', follow_viewport)
+
+
+"
+
+[sub_resource type="PackedScene" id="PackedScene_uyndq"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Custom", "script", "CanvasLayer"),
+"node_count": 1,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0),
+"variants": [SubResource("GDScript_h7edv")],
+"version": 3
+}
+
+[sub_resource type="PackedScene" id="PackedScene_s410b"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("DefaultLayoutBase", "CanvasLayer", "script"),
+"node_count": 1,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0),
+"variants": [SubResource("GDScript_h7edv")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_ddnr2"]
+script = ExtResource("1_h7edv")
+scene = SubResource("PackedScene_s410b")
+overrides = {
+"canvas_layer": "15.0"
+}
+
+[resource]
+script = ExtResource("2_uyndq")
+name = "custom"
+layer_list = Array[String]([])
+layer_info = {
+"": SubResource("Resource_ddnr2")
+}
+base_scene = SubResource("PackedScene_uyndq")
+base_overrides = {}
+layers = Array[ExtResource("1_h7edv")]([])
+metadata/_latest_layer = ""

@@ -26,14 +26,18 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "blue_character": "res://dialog/dialogic/blue_character.dch",
+"nobody_character": "res://dialog/dialogic/nobody_character.dch",
 "pink_character": "res://dialog/dialogic/pink_character.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"cut_scene_2": "res://dialog/Timeline/cut_scene_2.dtl",
+"end": "res://dialog/Timeline/end.dtl",
+"prologue": "res://dialog/Timeline/prologue.dtl",
 "timeline_1": "res://dialog/Timeline/timeline_1.dtl"
 }
-layout/style_list=["res://dialog/dialogic/blue_style.tres", "res://dialog/dialogic/pink_style.tres"]
-layout/default_style="res://dialog/dialogic/blue_style.tres"
+layout/style_list=["res://dialog/dialogic/pink_style.tres", "res://dialog/dialogic/LayoutStyle/Speaker.tres", "res://dialog/dialogic/LayoutStyle/NoSpeaker.tres"]
+layout/default_style=""
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -43,10 +47,10 @@ text/advance_delay=0.1
 text/autoadvance_per_character_delay=0.1
 text/autoadvance_ignored_characters_enabled=true
 audio/max_channels=4.0
-animations/join_default_length=0.5
+animations/join_default_length=0.3
 animations/join_default_wait=true
-animations/leave_default_length=0.5
-animations/leave_default_wait=false
+animations/leave_default_length=0.3
+animations/leave_default_wait=true
 animations/cross_fade_default_length=0.0
 choices/autofocus_first=true
 choices/delay=0.2
@@ -57,6 +61,7 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 variables={}
 text/input_action="dialog_next"
+portraits/default_portrait=""
 
 [dialogue_manager]
 
@@ -64,10 +69,10 @@ runtime/balloon_path="res://dialog/balloon.tscn"
 
 [display]
 
+window/size/mode=2
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
 
 [editor]
 

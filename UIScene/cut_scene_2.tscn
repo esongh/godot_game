@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://daba310na1jof"]
+
+[ext_resource type="Script" uid="uid://dqjp7yfpri513" path="res://UIScene/cut_scene_2.gd" id="1_h7wke"]
+[ext_resource type="Texture2D" uid="uid://dkvb85b5von2c" path="res://Assets/UI/cut_bg.png" id="1_jhvmd"]
+[ext_resource type="Texture2D" uid="uid://ced0mx27dbrwb" path="res://Assets/UI/cut_fg.png" id="2_5kh51"]
+[ext_resource type="Texture2D" uid="uid://b5dyg3t8we8bp" path="res://Assets/cut_scene/cut_scene_2/sky.png" id="2_xs2ai"]
+[ext_resource type="Texture2D" uid="uid://bum50jkces5dl" path="res://Assets/cut_scene/cut_scene_2/ground.png" id="3_b7u4j"]
+[ext_resource type="Texture2D" uid="uid://cjqhn817ywgw" path="res://Assets/cut_scene/cut_scene_2/tree.png" id="4_b7u4j"]
+[ext_resource type="Texture2D" uid="uid://c2s06c05dpmbw" path="res://Assets/cut_scene/cut_scene_2/pink.png" id="5_8ga3v"]
+[ext_resource type="Texture2D" uid="uid://be5t6qdq7ov4u" path="res://Assets/cut_scene/cut_scene_2/blue.png" id="6_h7wke"]
+
+[node name="cut_scene_2" type="CanvasLayer"]
+script = ExtResource("1_h7wke")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(512, 256)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_jhvmd")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("2_xs2ai")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("3_b7u4j")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("4_b7u4j")
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("5_8ga3v")
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("6_h7wke")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_5kh51")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="on_timeout"]
