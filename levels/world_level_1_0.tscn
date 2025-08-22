@@ -108,8 +108,9 @@ animations = [{
 script = ExtResource("2_lrfvx")
 dialogue_resource = null
 dialogue_start = "start"
-metadata/_edit_vertical_guides_ = [-132.0]
-metadata/_edit_horizontal_guides_ = [1022.0]
+caremaLimitTop = -200
+caremaLimitLeft = -500
+caremaLimitRight = 8500
 
 [node name="Background" type="ParallaxBackground" parent="." index="0"]
 scroll_ignore_camera_zoom = true

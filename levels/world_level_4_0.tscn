@@ -15,6 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://bqm7k2s0i00yv" path="res://inter_actable/fruit.tscn" id="12_0aovh"]
 
 [node name="Level" instance=ExtResource("1_t3k2q")]
+caremaLimitTop = -80
+caremaLimitBottom = 700
+caremaLimitLeft = -125
+caremaLimitRight = 5400
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 

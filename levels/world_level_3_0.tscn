@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://ctwd1yhs11mtb" path="res://BlockingDoor.tscn" id="6_g5t5m"]
 
 [node name="Level" instance=ExtResource("1_dk1rc")]
+caremaLimitTop = -160
+caremaLimitBottom = 600
+caremaLimitLeft = -220
+caremaLimitRight = 3800
 
 [node name="EntryPosition" parent="." index="0"]
 position = Vector2(0, 288)

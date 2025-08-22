@@ -104,6 +104,10 @@ _data = {
 }
 
 [node name="Level" instance=ExtResource("1_hevek")]
+caremaLimitTop = 50
+caremaLimitBottom = 1200
+caremaLimitLeft = -400
+caremaLimitRight = 7650
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 offset = Vector2(0, 247)

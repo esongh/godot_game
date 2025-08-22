@@ -11,7 +11,7 @@
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_qqkl5")
-levels = Array[PackedScene]([ExtResource("2_q6lw7"), ExtResource("6_2qtqd"), ExtResource("3_kn5v8"), ExtResource("2_uge7c"), ExtResource("2_j2nkm")])
+levels = Array[PackedScene]([ExtResource("2_q6lw7"), ExtResource("3_kn5v8"), ExtResource("2_j2nkm"), ExtResource("2_uge7c"), ExtResource("6_2qtqd")])
 
 [node name="Mu-xing" parent="." instance=ExtResource("2_b5yug")]
 z_index = 4
