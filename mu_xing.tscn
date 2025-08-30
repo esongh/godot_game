@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://bg0nmreq8rl8w"]
+[gd_scene load_steps=37 format=3 uid="uid://bg0nmreq8rl8w"]
 
 [ext_resource type="Script" uid="uid://be2wqwndintrn" path="res://mu_xing.gd" id="1_bkjjh"]
 [ext_resource type="Texture2D" uid="uid://cx5u5enl1ewf2" path="res://Assets/blue_slim_outlayer.png" id="2_fakcw"]
 [ext_resource type="Texture2D" uid="uid://cj7sly1jhyp6k" path="res://inter_actable/gdb-keyboard-2.png" id="3_fakcw"]
 [ext_resource type="Texture2D" uid="uid://bvjejabtg7tu8" path="res://Assets/UI/gdb-xbox-2.png" id="4_222em"]
 [ext_resource type="Script" uid="uid://cgkoh7d40auxp" path="res://inter_actable/interaction_icon.gd" id="5_wl3kj"]
+[ext_resource type="AudioStream" uid="uid://1fjdxrkiswet" path="res://Sounds/Jump 1.wav" id="6_wjjt8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_222em"]
 atlas = ExtResource("2_fakcw")
@@ -263,3 +264,6 @@ sprite_frames = SubResource("SpriteFrames_1nqlw")
 animation = &"xbox_controller"
 frame_progress = 0.574419
 script = ExtResource("5_wl3kj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_wjjt8")

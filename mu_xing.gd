@@ -15,6 +15,7 @@ class_name Mu_xing extends CharacterBody2D
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
 @onready var jump_coyote_timer: Timer = $JumpCoyoteTimer
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumpping = false
@@ -92,6 +93,7 @@ func jump_logic() -> void:
 		is_jumpping = true
 		jump_coyote_timer.stop()
 		jump_buffer_timer.stop()
+		audio_stream_player_2d.play()
 		velocity.y = JUMP_VELOCITY
 
 func apply_gravity(delta: float) -> void:
