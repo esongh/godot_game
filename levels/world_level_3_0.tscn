@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cjtypyhvge5m1"]
+[gd_scene load_steps=8 format=4 uid="uid://cjtypyhvge5m1"]
 
 [ext_resource type="PackedScene" uid="uid://c2epvx5s35kcr" path="res://Core/level_template.tscn" id="1_dk1rc"]
 [ext_resource type="TileSet" uid="uid://biq2auplgtcaf" path="res://Core/world3.tres" id="2_f5lfd"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bblj4x32yalu1" path="res://Classes/PickUpManager.gd" id="4_xeduj"]
 [ext_resource type="PackedScene" uid="uid://bqm7k2s0i00yv" path="res://inter_actable/fruit.tscn" id="5_g5t5m"]
 [ext_resource type="PackedScene" uid="uid://ctwd1yhs11mtb" path="res://BlockingDoor.tscn" id="6_g5t5m"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qffvs"]
 
 [node name="Level" instance=ExtResource("1_dk1rc")]
 caremaLimitTop = -160
@@ -43,5 +45,8 @@ position = Vector2(3014, 212)
 
 [node name="BlockingDoor" parent="." index="5" instance=ExtResource("6_g5t5m")]
 position = Vector2(3159, 351)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone" index="0"]
+shape = SubResource("WorldBoundaryShape2D_qffvs")
 
 [connection signal="all_pickups_collected" from="PickUpManager" to="BlockingDoor" method="_on_all_pickups_collected"]

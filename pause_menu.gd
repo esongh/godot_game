@@ -42,7 +42,6 @@ func _on_quit_button_pressed() -> void:
 	if visible:
 		get_tree().quit()
 
-
 func _on_reload_pressed() -> void:
 	if visible:
 		await Globals.world.reload_level()

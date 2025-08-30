@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2epvx5s35kcr"]
+[gd_scene load_steps=3 format=3 uid="uid://c2epvx5s35kcr"]
 
 [ext_resource type="Script" uid="uid://dnjor14fgndgc" path="res://Classes/Level.gd" id="1_rccg1"]
+[ext_resource type="PackedScene" uid="uid://dcgeiujx1tq4b" path="res://Core/killzone.tscn" id="2_qq3wn"]
 
 [node name="Level" type="Node"]
 script = ExtResource("1_rccg1")
@@ -10,3 +11,5 @@ metadata/_custom_type_script = "uid://dnjor14fgndgc"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
+
+[node name="Killzone" parent="." instance=ExtResource("2_qq3wn")]

@@ -12,33 +12,36 @@ var transition_inst : Node
 func _ready() -> void:
 	Globals.world = self
 	Globals.player = $"Mu-xing"
-	Globals.carmera = $"Mu-xing/Camera2D"
+	Globals.camera = $"Camera2D"
 	Globals.ui = $CanvasLayer
-	update_level.call_deferred()
+	Globals.player.visible = false
+	update_level()
+
+func _process(_delta: float) -> void:
+	if Globals.player.visible:
+		Globals.camera.position = Globals.player.position
 
 func update_level() -> void:
-	if level == 0:
-		Globals.player.visible = false
+	Globals.player.set_physics_process(false)
 	transition_inst = scene_transition.instantiate()
 	add_child(transition_inst)
 	var animation_player : AnimationPlayer = transition_inst.get_node("AnimationPlayer")
 	animation_player.play(&"bloc_in")
 	await animation_player.animation_finished
-	Globals.player.visible = false
 	if current_level:
 		current_level.queue_free()
 	if level >= levels.size():
 		get_tree().quit()
 		transition_inst.queue_free()
 		return
-
 	animation_player.play(&"bloc_out")
-	Globals.player.visible = true
 	var inst : Level = levels[level].instantiate()
-	inst.start()
 	inst.change_scene.connect(_on_level_change_scene)
-	current_level = inst
 	add_child(inst)
+	inst.start()
+	Globals.player.visible = true
+	Globals.player.set_physics_process(true)
+	current_level = inst
 	await animation_player.animation_finished
 	transition_inst.queue_free()
 
@@ -59,3 +62,18 @@ func _unhandled_input(event: InputEvent) -> void:
 			tree.paused = false
 			_pause_menu.close()
 		get_tree().root.set_input_as_handled()
+
+func game_over() -> void:
+	Globals.player.set_physics_process(false)
+	Globals.player.visible = false
+	Globals.player.position = Vector2(0, 0)
+	var timer : Timer = Timer.new()
+	timer.timeout.connect(func() -> void:
+		timer.queue_free()
+		reload_level()
+	)
+	add_child(timer)
+	timer.start(2.0)
+	#var game_over_scene : PackedScene = preload("res://UIScene/game_over.tscn")
+	#var game_over_inst : Node = game_over_scene.instantiate()
+	#Globals.ui.add_child(game_over_inst)

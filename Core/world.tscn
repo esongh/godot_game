@@ -13,18 +13,19 @@
 script = ExtResource("1_qqkl5")
 levels = Array[PackedScene]([ExtResource("2_q6lw7"), ExtResource("3_kn5v8"), ExtResource("2_j2nkm"), ExtResource("2_uge7c"), ExtResource("6_2qtqd")])
 
-[node name="Mu-xing" parent="." instance=ExtResource("2_b5yug")]
-z_index = 4
+[node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
-acceleration = 2000.0
-decelration = 2600.0
-
-[node name="Camera2D" type="Camera2D" parent="Mu-xing"]
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.4
 drag_bottom_margin = 0.4
+
+[node name="Mu-xing" parent="." instance=ExtResource("2_b5yug")]
+z_index = 4
+scale = Vector2(2, 2)
+acceleration = 2000.0
+decelration = 2600.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 50
