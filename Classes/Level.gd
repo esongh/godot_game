@@ -11,6 +11,7 @@ class_name Level
 signal change_scene
 
 func _ready():
+	killzone.position = Vector2(0, caremaLimitBottom)
 	if Globals.player == null:
 		setup_test_globals()
 		start()
@@ -21,7 +22,7 @@ func start() -> void:
 	Globals.camera.limit_bottom = caremaLimitBottom
 	Globals.camera.limit_left = caremaLimitLeft
 	Globals.camera.limit_right = caremaLimitRight
-	killzone.position = Vector2(0, caremaLimitBottom)
+
 
 func exit_level() -> void:
 	change_scene.emit()

@@ -16,10 +16,14 @@ func interact() -> void:
 	print("%s acting..." % name)
 	interacted.emit()
 
-func _on_body_entered(player: Mu_xing) -> void:
+func _on_body_entered(body: Node) -> void:
+	if body.name != "Mu-xing":
+		return
 	if not interactable:
 		return
-	player.register_interactable(self)
+	body.register_interactable(self)
 
-func _on_body_exited(player: Mu_xing) -> void:
-	player.unregister_interactable(self)
+func _on_body_exited(body: Node) -> void:
+	if body.name != "Mu-xing":
+		return
+	body.unregister_interactable(self)

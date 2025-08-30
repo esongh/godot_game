@@ -44,5 +44,5 @@ func _on_quit_button_pressed() -> void:
 
 func _on_reload_pressed() -> void:
 	if visible:
-		await Globals.world.reload_level()
+		Globals.world.reload_level()
 		close()

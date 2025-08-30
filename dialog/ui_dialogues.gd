@@ -22,7 +22,7 @@ func _ready() -> void:
 	print("states run")
 	states.run(scenario, "example")
 
-func _input(event) -> void:
+func _input(_event) -> void:
 	if Input.is_action_just_pressed(&"ui_accept"):
 		states.next()
 	if states.ended:
