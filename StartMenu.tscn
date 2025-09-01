@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjbbaxxs6pgxw"]
+
+[ext_resource type="Script" uid="uid://c70sxkmqullwp" path="res://start_menu.gd" id="1_0d5ky"]
+[ext_resource type="Texture2D" uid="uid://c21rkmnj5ekex" path="res://Assets/UI/start_menu_scene.png" id="1_d3352"]
+[ext_resource type="Texture2D" uid="uid://bygqmbecv7wvy" path="res://Assets/UI/scene_transition_container.png" id="2_ufv5y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d3352"]
+font_size = 120
+font_color = Color(0.0496627, 0.170998, 0.156622, 1)
+outline_size = 5
+outline_color = Color(0.254955, 0.450348, 0.4853, 1)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0d5ky")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.123972, 0.374966, 0.439952, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_d3352")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(600, 180)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 25
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(600, 164)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_ufv5y")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "凌木寻星记"
+label_settings = SubResource("LabelSettings_d3352")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+theme_override_font_sizes/font_size = 50
+text = "开始游戏"
+
+[node name="Quit" type="Button" parent="MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../Play")
+focus_previous = NodePath("../Play")
+theme_override_font_sizes/font_size = 50
+text = "退出"

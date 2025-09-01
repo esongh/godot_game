@@ -23,7 +23,6 @@ func start() -> void:
 	Globals.camera.limit_left = caremaLimitLeft
 	Globals.camera.limit_right = caremaLimitRight
 
-
 func exit_level() -> void:
 	change_scene.emit()
 

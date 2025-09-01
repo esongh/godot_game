@@ -10,6 +10,7 @@ var level : int = 0
 var transition_inst : Node
 
 func _ready() -> void:
+	# Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	Globals.world = self
 	Globals.player = $"Mu-xing"
 	Globals.camera = $"Camera2D"
@@ -30,11 +31,13 @@ func update_level() -> void:
 	await animation_player.animation_finished
 	if current_level:
 		current_level.queue_free()
-	if level >= levels.size():
-		get_tree().quit()
-		transition_inst.queue_free()
-		return
 	animation_player.play(&"bloc_out")
+	if level >= levels.size():
+		await animation_player.animation_finished
+		transition_inst.queue_free()
+		back_to_menu()
+		return
+
 	var inst : Level = levels[level].instantiate()
 	inst.change_scene.connect(_on_level_change_scene)
 	add_child(inst)
@@ -77,3 +80,9 @@ func game_over() -> void:
 	#var game_over_scene : PackedScene = preload("res://UIScene/game_over.tscn")
 	#var game_over_inst : Node = game_over_scene.instantiate()
 	#Globals.ui.add_child(game_over_inst)
+
+func back_to_menu() -> void:
+	var start_menu_scene : PackedScene = preload("res://StartMenu.tscn")
+	var start_menu_inst : Node = start_menu_scene.instantiate()
+	get_tree().root.add_child(start_menu_inst)
+	queue_free()
