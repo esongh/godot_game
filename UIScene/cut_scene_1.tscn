@@ -185,7 +185,7 @@ animations = [{
 [node name="CutScene_1" type="CanvasLayer"]
 layer = 4
 script = ExtResource("1_0wbt7")
-time_file = ExtResource("2_pw2gb")
+time_line = ExtResource("2_pw2gb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

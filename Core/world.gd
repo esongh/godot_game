@@ -31,10 +31,8 @@ func update_level() -> void:
 	await animation_player.animation_finished
 	if current_level:
 		current_level.queue_free()
-	animation_player.play(&"bloc_out")
+
 	if level >= levels.size():
-		await animation_player.animation_finished
-		transition_inst.queue_free()
 		back_to_menu()
 		return
 
@@ -42,6 +40,7 @@ func update_level() -> void:
 	inst.change_scene.connect(_on_level_change_scene)
 	add_child(inst)
 	inst.start()
+	animation_player.play(&"bloc_out")
 	Globals.player.visible = true
 	Globals.player.set_physics_process(true)
 	current_level = inst
@@ -83,6 +82,8 @@ func game_over() -> void:
 
 func back_to_menu() -> void:
 	var start_menu_scene : PackedScene = preload("res://StartMenu.tscn")
+	Globals.player.visible = false
 	var start_menu_inst : Node = start_menu_scene.instantiate()
 	get_tree().root.add_child(start_menu_inst)
+	transition_inst.queue_free()
 	queue_free()

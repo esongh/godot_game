@@ -1,9 +1,7 @@
-extends CanvasLayer
+extends CutScene
 
-@export var time_file : Resource
+@export var time_line : Resource
 @onready var animation := $AnimationPlayer
-
-signal cut_scene_ended
 
 func _ready() -> void:
 	animation.animation_finished.connect(_animation_finished)
@@ -14,7 +12,7 @@ func _animation_finished(strName : String) -> void:
 		if Dialogic.current_timeline != null:
 			return
 		Dialogic.timeline_ended.connect(on_timeline_ended)
-		Dialogic.start(time_file)
+		Dialogic.start(time_line)
 	if (strName == "lost"):
 		cut_scene_ended.emit.call_deferred()
 

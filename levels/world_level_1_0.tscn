@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b3hcq7f2dubk6"]
+[gd_scene load_steps=17 format=4 uid="uid://b3hcq7f2dubk6"]
 
 [ext_resource type="PackedScene" uid="uid://c2epvx5s35kcr" path="res://Core/level_template.tscn" id="1_8xhhf"]
 [ext_resource type="TileSet" uid="uid://cnsfjjdl0d22w" path="res://level0.tres" id="2_2hadm"]
@@ -14,95 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dijtq5flqoctp" path="res://Assets/background/level0/Layer 3.png" id="7_hnrby"]
 [ext_resource type="Script" uid="uid://bblj4x32yalu1" path="res://Classes/PickUpManager.gd" id="11_hnrby"]
 [ext_resource type="Texture2D" uid="uid://ca2hjs3jlor0a" path="res://Assets/background/level0/Layer4.png" id="12_7gmh1"]
-[ext_resource type="Texture2D" uid="uid://d1ola6gyyw6y1" path="res://Assets/item/memory_shard.png" id="14_wlys7"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rxdx6"]
-radius = 38.0132
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6arm"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k58d7"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_77oso"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1sdvl"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6u776"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qq47d"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhtm0"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q7ym4"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(48, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdrba"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_83wcb"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(16, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fohoh"]
-atlas = ExtResource("14_wlys7")
-region = Rect2(32, 32, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vlihx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j6arm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k58d7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_77oso")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1sdvl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6u776")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qq47d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rhtm0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q7ym4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kdrba")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_83wcb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fohoh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 12.0
-}]
+[ext_resource type="PackedScene" uid="uid://ceo76n28vij35" path="res://UIScene/cut_scene_1.tscn" id="16_j6arm"]
+[ext_resource type="PackedScene" uid="uid://ncbsugyncd4c" path="res://inter_actable/memory_shard.tscn" id="16_wlys7"]
 
 [node name="Level" instance=ExtResource("1_8xhhf")]
 script = ExtResource("2_lrfvx")
@@ -193,12 +106,7 @@ tile_set = ExtResource("2_2hadm")
 [node name="BounceSpring" parent="TileMapLayer" index="0" instance=ExtResource("3_2e8a8")]
 position = Vector2(2592, 451)
 
-[node name="BounceSpring2" parent="TileMapLayer" index="1" instance=ExtResource("3_2e8a8")]
-position = Vector2(371.5, 240.5)
-rotation = 0.785398
-bounce_force = Vector2(600, -600)
-
-[node name="BounceSpring3" parent="TileMapLayer" index="2" instance=ExtResource("3_2e8a8")]
+[node name="BounceSpring3" parent="TileMapLayer" index="1" instance=ExtResource("3_2e8a8")]
 position = Vector2(2976.5, 290)
 rotation = 0.785398
 bounce_force = Vector2(600, -600)
@@ -218,24 +126,10 @@ style = "summer"
 position = Vector2(1066, 386)
 style = "summer"
 
-[node name="Area2D" type="Area2D" parent="." index="6"]
-position = Vector2(358, 345)
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource("CircleShape2D_rxdx6")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" index="1"]
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_vlihx")
-autoplay = "default"
-frame = 6
-frame_progress = 0.244406
-
-[node name="BlockingDoor" parent="." index="7" instance=ExtResource("7_bcglj")]
+[node name="BlockingDoor" parent="." index="6" instance=ExtResource("7_bcglj")]
 position = Vector2(2926, 627)
 
-[node name="Foreground" type="ParallaxBackground" parent="." index="8"]
+[node name="Foreground" type="ParallaxBackground" parent="." index="7"]
 layer = 5
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Foreground" index="0"]
@@ -251,5 +145,8 @@ texture = ExtResource("12_7gmh1")
 position = Vector2(1024, 0)
 texture = ExtResource("12_7gmh1")
 
+[node name="MemoryShard" parent="." index="9" instance=ExtResource("16_wlys7")]
+position = Vector2(217, 341)
+cut_scene = ExtResource("16_j6arm")
+
 [connection signal="all_pickups_collected" from="PickUpManager" to="BlockingDoor" method="_on_all_pickups_collected"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

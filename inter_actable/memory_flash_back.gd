@@ -1,15 +1,8 @@
 extends Interactable
-
-class_name MemoryShard
-
-@export var animationPlayer : AnimatedSprite2D
-@export var animationName : String
+class_name FlashBacke
 
 @export var cut_scene : PackedScene
 var cut_scene_inst : CutScene
-
-func _ready() -> void:
-	animationPlayer.play(animationName)
 
 func interact() -> void:
 	if cut_scene == null:

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://u2kkcam5gupq"]
+
+[ext_resource type="Script" uid="uid://c3gemxc2brw20" path="res://inter_actable/memory_flash_back.gd" id="1_gg3bs"]
+[ext_resource type="PackedScene" uid="uid://daba310na1jof" path="res://UIScene/cut_scene_2.tscn" id="2_c0afs"]
+[ext_resource type="Texture2D" uid="uid://mxukp4whtmay" path="res://Assets/item/tree_interactable.png" id="2_rixbs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rixbs"]
+radius = 40.0125
+
+[node name="HeartTree" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_gg3bs")
+cut_scene = ExtResource("2_c0afs")
+metadata/_custom_type_script = "uid://c0nmmbq55mvfv"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -124)
+scale = Vector2(4, 4)
+texture = ExtResource("2_rixbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -41)
+shape = SubResource("CircleShape2D_rixbs")
