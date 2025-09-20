@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqeo17cv64teq"]
+
+[ext_resource type="Script" uid="uid://c3gemxc2brw20" path="res://inter_actable/memory_flash_back.gd" id="1_ffrxq"]
+[ext_resource type="Texture2D" uid="uid://briu8fttpu361" path="res://Assets/item/trafic_ligtht_interactable.png" id="2_0dj5y"]
+[ext_resource type="PackedScene" uid="uid://dvud0cvqf0y0u" path="res://UIScene/cut_scene_3.tscn" id="2_fivfa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dj5y"]
+size = Vector2(44, 74)
+
+[node name="LightTower" type="Area2D"]
+script = ExtResource("1_ffrxq")
+cut_scene = ExtResource("2_fivfa")
+metadata/_custom_type_script = "uid://c3gemxc2brw20"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -119)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0dj5y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -38)
+shape = SubResource("RectangleShape2D_0dj5y")

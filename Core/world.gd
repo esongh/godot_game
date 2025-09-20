@@ -5,6 +5,7 @@ class_name World
 
 @onready var _pause_menu := $CanvasLayer/PauseMenu as PauseMenu
 var scene_transition : PackedScene = preload("res://UIScene/scene_transition.tscn")
+var failed_scene : PackedScene = preload("res://UIScene/failed_scene.tscn")
 var current_level: Level
 var level : int = 0
 var transition_inst : Node
@@ -19,7 +20,7 @@ func _ready() -> void:
 	update_level()
 
 func _process(_delta: float) -> void:
-	if Globals.player.visible:
+	if Globals.player.visible and Globals.pross_camera:
 		Globals.camera.position = Globals.player.position
 
 func update_level() -> void:
@@ -38,8 +39,9 @@ func update_level() -> void:
 
 	var inst : Level = levels[level].instantiate()
 	inst.change_scene.connect(_on_level_change_scene)
-	add_child(inst)
+
 	inst.start()
+	add_child(inst)
 	animation_player.play(&"bloc_out")
 	Globals.player.visible = true
 	Globals.player.set_physics_process(true)
@@ -69,21 +71,16 @@ func game_over() -> void:
 	Globals.player.set_physics_process(false)
 	Globals.player.visible = false
 	Globals.player.position = Vector2(0, 0)
-	var timer : Timer = Timer.new()
-	timer.timeout.connect(func() -> void:
-		timer.queue_free()
-		reload_level()
-	)
-	add_child(timer)
-	timer.start(2.0)
-	#var game_over_scene : PackedScene = preload("res://UIScene/game_over.tscn")
-	#var game_over_inst : Node = game_over_scene.instantiate()
-	#Globals.ui.add_child(game_over_inst)
+	var fail_scene_inst : CanvasLayer = failed_scene.instantiate()
+	Globals.ui.add_child(fail_scene_inst)
+	current_level.queue_free()
 
 func back_to_menu() -> void:
 	var start_menu_scene : PackedScene = preload("res://StartMenu.tscn")
-	Globals.player.visible = false
+	Globals.player.queue_free()
+	Globals.camera.queue_free()
+	Globals.ui.queue_free()
+
 	var start_menu_inst : Node = start_menu_scene.instantiate()
 	get_tree().root.add_child(start_menu_inst)
-	transition_inst.queue_free()
 	queue_free()

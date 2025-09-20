@@ -32,6 +32,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "cut_scene_2": "res://dialog/Timeline/cut_scene_2.dtl",
+"cut_scene_3": "res://dialog/Timeline/cut_scene_3.dtl",
 "end": "res://dialog/Timeline/end.dtl",
 "prologue": "res://dialog/Timeline/prologue.dtl",
 "timeline_1": "res://dialog/Timeline/timeline_1.dtl"
@@ -69,7 +70,7 @@ runtime/balloon_path="res://dialog/balloon.tscn"
 
 [display]
 
-window/size/mode=2
+window/size/mode=3
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"

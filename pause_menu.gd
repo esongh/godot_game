@@ -40,7 +40,8 @@ func _on_resume_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	if visible:
-		get_tree().quit()
+		Globals.world.back_to_menu()
+		close()
 
 func _on_reload_pressed() -> void:
 	if visible:

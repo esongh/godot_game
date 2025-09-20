@@ -24,6 +24,6 @@ func _on_body_entered(_body):
 	is_collected = true
 	animation_player.play("pickup")
 	picked_up.emit(self)
-	print("item collected fruit")
+	# print("item collected fruit")
 	await animation_player.animation_finished
 	queue_free()

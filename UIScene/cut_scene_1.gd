@@ -1,11 +1,11 @@
 extends CutScene
 
 @export var time_line : Resource
-@onready var animation := $AnimationPlayer
+@onready var animation_player := $AnimationPlayer
 
 func _ready() -> void:
-	animation.animation_finished.connect(_animation_finished)
-	animation.play(&"movie")
+	animation_player.animation_finished.connect(_animation_finished)
+	animation_player.play(&"movie")
 
 func _animation_finished(strName : String) -> void:
 	if (strName == "movie"):
@@ -17,4 +17,4 @@ func _animation_finished(strName : String) -> void:
 		cut_scene_ended.emit.call_deferred()
 
 func on_timeline_ended() -> void:
-	animation.play(&"lost")
+	animation_player.play(&"lost")

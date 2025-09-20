@@ -16,10 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://u2kkcam5gupq" path="res://inter_actable/heart_tree.tscn" id="14_t311c"]
 
 [node name="Level" instance=ExtResource("1_t3k2q")]
-caremaLimitTop = -80
-caremaLimitBottom = 700
-caremaLimitLeft = -125
-caremaLimitRight = 5400
+cameraLimitTop = -80
+cameraLimitBottom = 700
+cameraLimitLeft = -125
+cameraLimitRight = 5400
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
